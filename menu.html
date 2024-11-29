@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Hamburger Menu</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .fullScreen {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            padding: 0.5rem 1.5rem;
+            color: white;
+        }
+
+        .list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .inner {
+            padding: 7px 15px;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+        }
+
+        .inner:hover {
+            text-decoration: underline;
+        }
+
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+       
+        @media (max-width: 768px) {
+            .list {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(to right, #6a11cb, #2575fc);
+            }
+
+            .list.show {
+                display: flex; 
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+        
+        img {
+            width: 100%; 
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="fullScreen">
+        <h2>Menu</h2>
+  
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+     
+        <ul class="list">
+            <li class="inner">Home</li>
+            <li class="inner">About</li>
+            <li class="inner">Contact</li>
+        </ul>
+       
+    </div>
+    <img src="./Zoho_headquarters_in_chennai.jpg">
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.list');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
